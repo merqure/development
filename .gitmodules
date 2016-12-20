@@ -1,6 +1,8 @@
 [submodule "backend"]
 	path = backend
 	url = git@github.com:merqure/backend.git
+	ignore = all
 [submodule "frontend"]
 	path = frontend
 	url = git@github.com:merqure/frontend.git
+	ignore = all
