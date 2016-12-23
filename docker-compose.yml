@@ -1,6 +1,22 @@
-backend:  
-  build: ./backend
-  ports: 
-    - 8080:8080
-  volumes:
-    - ./backend:/go/src/github.com/merqure/backend
+version: "2.0"
+services:
+  postgres:
+    image: postgres:latest
+    ports:
+      - "5432:5432"
+
+  pgAdmin:
+    image: fenglc/pgadmin4
+    ports:
+      - "5050:5050"
+    links:
+      - postgres
+
+  backend:  
+    build: ./backend
+    ports: 
+      - "8080:8080"
+    volumes:
+      - ./backend:/go/src/github.com/merqure/backend
+    depends_on:
+      - postgres
