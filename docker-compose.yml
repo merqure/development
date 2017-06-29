@@ -1,21 +1,23 @@
 version: "2.0"
 services:
   postgres:
-    image: postgres:latest
+    build: ./database
     ports:
-      - "5432:5432"
+      - 5432:5432
+    environment:
+      POSTGRES_PASSWORD: ilovemerqure
 
-  pgAdmin:
-    image: fenglc/pgadmin4
+  adminer:
+    image: adminer
     ports:
-      - "5050:5050"
-    links:
+      - 8080:8080
+    depends_on:
       - postgres
 
   backend:  
     build: ./backend
     ports: 
-      - "8080:8080"
+      - "3000:3000"
     volumes:
       - ./backend:/go/src/github.com/merqure/backend
     depends_on:
