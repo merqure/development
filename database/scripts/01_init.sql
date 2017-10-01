@@ -1,3 +1,3 @@
-CREATE USER docker WITH PASSWORD 'ilovemerqure';
+CREATE USER docker WITH PASSWORD 'docker';
 CREATE DATABASE docker;
 GRANT ALL PRIVILEGES ON DATABASE docker TO docker;
