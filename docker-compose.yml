@@ -5,7 +5,7 @@ services:
     ports:
       - 5432:5432
     environment:
-      POSTGRES_PASSWORD: ilovemerqure
+      POSTGRES_PASSWORD: ilovepostgres
   
   phpPgAdmin:
     container_name: phppgadmin
