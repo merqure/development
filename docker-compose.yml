@@ -6,12 +6,17 @@ services:
       - 5432:5432
     environment:
       POSTGRES_PASSWORD: ilovemerqure
-
-  adminer:
-    image: adminer
+  
+  phpPgAdmin:
+    container_name: phppgadmin
+    image: fizix/docker-pgadmin:php-fpm-environment
+    environment:
+      - POSTGRESQL_HOST=postgres
+      - POSTGRESQL_PORT=5432
+      - POSTGRESQL_DEFAULT_DB=postgres
     ports:
-      - 8080:8080
-    depends_on:
+      - 80:80
+    links:
       - postgres
 
   backend:  
